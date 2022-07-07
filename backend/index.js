@@ -63,7 +63,7 @@ app.use(notFound)
 app.use(errorHandler)
 
 
-const port = process.env.PORT_NO
+const port = process.env.PORT || 8000
 app.listen(port, () => {
   console.log(`Running in ${process.env.PROCESS_MODE} mode on port ${port}`.yellow.bold)
 })
