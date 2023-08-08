@@ -169,7 +169,7 @@ export const getTopProducts  = () => {
    
     try {
       const { data } = await axois.get(
-        `/api/products/top`,
+        `esoul.onrender.com/api/products/top`,
       )
 
       dispatch(productSlice.actions.topProductSuccess(data))
@@ -199,7 +199,7 @@ export const addReview = (review,productID) => {
     }
     try {
       const { data } = await axois.put(
-        `/api/products/${productID}/reviews`,
+        `esoul.onrender.com/api/products/${productID}/reviews`,
         review,
         config
       )
@@ -228,7 +228,7 @@ export const editProduct = (product,productID) => {
       },
     }
     try {
-      const { data } = await axois.put(`/api/products/${productID}`, product, config)
+      const { data } = await axois.put(`esoul.onrender.com/api/products/${productID}`, product, config)
 
       dispatch(productSlice.actions.productEditSuccess())
     } catch (error) {
@@ -253,7 +253,7 @@ export const createProduct = () => {
       },
     }
     try {
-      const { data } = await axois.post(`/api/products`,{}, config)
+      const { data } = await axois.post(`esoul.onrender.com/api/products`,{}, config)
 
       dispatch(productSlice.actions.productCreateSuccess(data))
     } catch (error) {
@@ -278,7 +278,7 @@ export const deleteProduct = (id) => {
       },
     }
     try {
-      const { data } = await axois.delete(`/api/products/${id}`,config)
+      const { data } = await axois.delete(`esoul.onrender.com/api/products/${id}`,config)
 
       dispatch(productSlice.actions.productDeleteSuccess())
     } catch (error) {
@@ -298,7 +298,7 @@ export const fetchAllProducts = (keyword='',pageNumber='') => {
     return async (dispatch) => {
         dispatch(productSlice.actions.productsListRequest())
         try {
-            const { data } = await axois.get(`/api/products?keyword=${keyword}&&page=${pageNumber}`)
+            const { data } = await axois.get(`esoul.onrender.com/api/products?keyword=${keyword}&&page=${pageNumber}`)
            
             dispatch(productSlice.actions.productsListSuccess(data))
         } catch (error) {
@@ -317,7 +317,7 @@ export const fetchProductDetail = (id) => {
   return async (dispatch) => {
     dispatch(productSlice.actions.productDetailRequest())
     try {
-      const { data } = await axois.get(`/api/products/${id}`)
+      const { data } = await axois.get(`esoul.onrender.com/api/products/${id}`)
       
       dispatch(productSlice.actions.productDetailSuccess(data))
     } catch (error) {
@@ -389,7 +389,7 @@ export const {removeItemFromCart,saveShippingAddress,savePaymentMethod} = cartSl
 export const addToCart = (id,qty)=>{
   return async (dispatch,getState) => {
     
-    const {data} = await axois.get(`/api/products/${id}`)
+    const {data} = await axois.get(`esoul.onrender.com/api/products/${id}`)
   
     dispatch(
       cartSlice.actions.addItemToCart({
@@ -581,7 +581,7 @@ export const deleteUser = (id) => {
           authtoken: `Bearer ${userLogin.userInfo.token}`,
         },
       }
-      const { data } = await axois.delete(`/api/user/${id}`, config)
+      const { data } = await axois.delete(`esoul.onrender.com/api/user/${id}`, config)
       dispatch(userSlice.actions.userDeleteSuccess())
     } catch (error) {
       dispatch(
@@ -605,7 +605,7 @@ export const getAllUsers = () => {
           authtoken: `Bearer ${userLogin.userInfo.token}`,
         },
       }
-      const { data } = await axois.get(`/api/user`, config)
+      const { data } = await axois.get(`esoul.onrender.com/api/user`, config)
       dispatch(userSlice.actions.userListSuccess(data))
     } catch (error) {
       dispatch(
@@ -649,7 +649,7 @@ export const loginUser = (email,password) => {
           'Content-Type' : 'application/json'
         }
       }
-      const {data} = await axois.post('/api/user/login',{email,password},config)
+      const {data} = await axois.post('esoul.onrender.com/api/user/login',{email,password},config)
       dispatch(userSlice.actions.userLoginSuccess(data))
       localStorage.setItem('userInfo', JSON.stringify(data))
     } catch (error) {
@@ -674,7 +674,7 @@ export const registerUser = (name,email, password) => {
         },
       }
       const { data } = await axois.post(
-        '/api/user',
+        'esoul.onrender.com/api/user',
         {name, email, password },
         config
       )
@@ -704,7 +704,7 @@ export const getUserDetails = (id) => {
            'authtoken' : `Bearer ${userLogin.userInfo.token}`
         }
       }
-      const {data} = await axois.get(`/api/user/${id}`,config)
+      const {data} = await axois.get(`esoul.onrender.com/api/user/${id}`,config)
       dispatch(userSlice.actions.userDetailsSuccess(data))
     } catch (error) {
       dispatch(
@@ -729,7 +729,7 @@ export const updateUserProfile = (user) => {
           authtoken: `Bearer ${userLogin.userInfo.token}`,
         },
       }
-      const { data } = await axois.put(`/api/user/profile`,user, config)
+      const { data } = await axois.put(`esoul.onrender.com/api/user/profile`,user, config)
     
       dispatch(userSlice.actions.userUpdateSuccess())
       dispatch(userSlice.actions.userLoginSuccess(data))
@@ -759,7 +759,7 @@ export const updateUserByID = (user) => {
         },
       }
      
-      const { data } = await axois.put(`/api/user/${user._id}`, user, config)
+      const { data } = await axois.put(`esoul.onrender.com/api/user/${user._id}`, user, config)
 
       dispatch(userSlice.actions.userUpdateByAdminSuccess())
       dispatch(userSlice.actions.userDetailsSuccess(data))
@@ -811,7 +811,7 @@ export const placeOrder = (data) => {
         },
       }
      
-      const { data:orderData } = await axois.post(`/api/orders`,data, config)
+      const { data:orderData } = await axois.post(`esoul.onrender.com/api/orders`,data, config)
      
       dispatch(orderSlice.actions.placeOrderSuccess(orderData))
     } catch (error) {
@@ -945,7 +945,7 @@ export const delieverOrder = (orderID)=>{
       }
 
       const { data: orderData } = await axois.put(
-        `/api/orders/${orderID}/delievered`,{},
+        `esoul.onrender.com/api/orders/${orderID}/delievered`,{},
         config
       )
 
@@ -972,7 +972,7 @@ export const getAllOrders = ()=>{
         },
       }
 
-      const { data: orderData } = await axois.get(`/api/orders/all`, config)
+      const { data: orderData } = await axois.get(`esoul.onrender.com/api/orders/all`, config)
 
       dispatch(existingOrders.actions.allOrdersSuccess(orderData))
     } catch (error) {
@@ -1000,7 +1000,7 @@ export const getMyOrders = () => {
       }
 
       const { data: orderData } = await axois.get(
-        `/api/orders`,
+        `esoul.onrender.com/api/orders`,
         config
       )
 
@@ -1029,7 +1029,7 @@ export const payOrder = (orderId,paymentResult) => {
         },
       }
 
-      const { data: orderData } = await axois.put(`/api/orders/${orderId}/pay`, paymentResult ,config)
+      const { data: orderData } = await axois.put(`esoul.onrender.com/api/orders/${orderId}/pay`, paymentResult ,config)
 
       dispatch(existingOrders.actions.orderPaySuccess())
     } catch (error) {
@@ -1056,7 +1056,7 @@ export const getOrderDetails = (id) => {
         },
       }
 
-      const { data: orderData } = await axois.get(`/api/orders/${id}`, config)
+      const { data: orderData } = await axois.get(`esoul.onrender.com/api/orders/${id}`, config)
       
 
       dispatch(existingOrders.actions.orderDetailsSuccess(orderData))
