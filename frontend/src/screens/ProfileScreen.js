@@ -6,7 +6,7 @@ import FormContainer from '../components/FormContainer'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
 import { useHistory } from 'react-router-dom'
-// import { LinkContainer } from 'react-router-bootstrap'
+import { LinkContainer } from 'react-router-bootstrap'
 
 const ProfileScreen = () => {
   const [name, setname] = useState("")
@@ -157,9 +157,9 @@ const ProfileScreen = () => {
                       )}
                     </td>
                     <td>
-                      {/* <LinkContainer to={`/orders/${order._id}`}>
+                      <LinkContainer to={`/orders/${order._id}`}>
                         <Button className='btn-sm' variant='light'>Details</Button>
-                      </LinkContainer> */}
+                      </LinkContainer>
                     </td>
                   </tr>
                 )

@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect } from 'react'
 import { Button, Col, Row, Table } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
-// import { LinkContainer } from 'react-router-bootstrap'
+import { LinkContainer } from 'react-router-bootstrap'
 import { useHistory, useParams } from 'react-router-dom'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
@@ -88,11 +88,11 @@ const ProductsListScreen = () => {
                   <td>{product.category}</td>
                   <td>{product.brand}</td>
                   <td>
-                    {/* <LinkContainer to={`/admin/products/${product._id}/edit`}>
+                    <LinkContainer to={`/admin/products/${product._id}/edit`}>
                       <Button variant='light' className='btn-sm'>
                         <i className='fas fa-edit'></i>
                       </Button>
-                    </LinkContainer> */}
+                    </LinkContainer>
 
                     <Button
                       className='btn-sm'
