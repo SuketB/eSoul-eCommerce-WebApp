@@ -14,12 +14,18 @@ import morgan from 'morgan'
 
 dotenv.config();
 
-const corsOptions = {
-  origin: 'https://master--enchanting-melba-984556.netlify.app', // Replace with your frontend's domain
-  methods: 'GET,PUT,POST,DELETE,PATCH',
-}
-
-app.use(cors(corsOptions))
+const allowedOrigins = ['https://master--enchanting-melba-984556.netlify.app']
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if (allowedOrigins.includes(origin)) {
+        callback(null, true)
+      } else {
+        callback(new Error('Not allowed by CORS'))
+      }
+    },
+  })
+)
 
 
 connectDB()
