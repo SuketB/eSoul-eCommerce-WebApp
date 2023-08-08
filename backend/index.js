@@ -9,6 +9,7 @@ import { errorHandler, notFound } from './middleware/errorMiddleware.js'
 import orderRoutes from './routes/orderRoutes.js'
 import { authUser } from './middleware/authMiddleware.js'
 import uploadRoutes from './routes/uploadRoutes.js'
+import cors from 'cors'
 import path from 'path'
 import morgan from 'morgan'
 
