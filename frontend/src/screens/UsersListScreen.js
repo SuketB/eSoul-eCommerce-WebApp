@@ -1,7 +1,7 @@
 import React,{Fragment, useEffect} from 'react'
 import { Button, NavLink, Table } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux'
-import { LinkContainer } from 'react-router-bootstrap';
+// import { LinkContainer } from 'react-router-bootstrap';
 import { Link, useHistory } from 'react-router-dom';
 import Loader from '../components/Loader';
 import Message from '../components/Message';
@@ -74,7 +74,7 @@ const UsersListScreen = () => {
                     )}
                   </td>
                   <td>
-                    <LinkContainer to={`/admin/users/${user._id}/edit`}>
+                    {/* <LinkContainer to={`/admin/users/${user._id}/edit`}>
                       <Button
                         variant='light'
                         className='btn-sm'
@@ -82,7 +82,7 @@ const UsersListScreen = () => {
                       >
                         <i className='fas fa-edit'></i>
                       </Button>
-                    </LinkContainer>
+                    </LinkContainer> */}
 
                     <Button
                       className='btn-sm'
