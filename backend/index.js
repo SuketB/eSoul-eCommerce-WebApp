@@ -15,7 +15,7 @@ import morgan from 'morgan'
 dotenv.config();
 
 const corsOptions = {
-  origin: 'http://https://esoul.onrender.com', // Replace with your frontend's domain
+  origin: 'https://master--enchanting-melba-984556.netlify.app', // Replace with your frontend's domain
   methods: 'GET,PUT,POST,DELETE,PATCH',
 }
 
