@@ -15,7 +15,7 @@ const seedData = async () => {
         await Product.deleteMany()
         await User.deleteMany()
         await Order.deleteMany()
-
+       
         const insertedUsers = await User.insertMany(users)
 
         const admin = insertedUsers[0]._id

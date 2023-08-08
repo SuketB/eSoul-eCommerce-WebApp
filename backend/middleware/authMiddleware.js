@@ -16,6 +16,7 @@ export const authUser = asyncHandler(async (req,res,next) => {
         res.status(400)
         throw new Error('Not Authorized')
     }
+    
    }
    else{
    

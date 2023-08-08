@@ -20,11 +20,11 @@ const Home = () => {
  const keyword = params.keyword
 
  const pageNumber = params.pageNumber || 1
+
  
   const dispatch = useDispatch()
   useEffect(() => {
    dispatch(fetchAllProducts(keyword,pageNumber))
- 
   }, [dispatch,keyword,pageNumber])
   return (
     <Fragment>
