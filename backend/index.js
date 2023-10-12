@@ -15,7 +15,7 @@ import morgan from 'morgan'
 
 dotenv.config();
 
-const allowedOrigins = ['https://master--enchanting-melba-984556.netlify.app']
+const allowedOrigins = ['https://enchanting-melba-984556.netlify.app']
 app.use(
   cors({
     origin: (origin, callback) => {
