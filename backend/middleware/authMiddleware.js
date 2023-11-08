@@ -1,16 +1,21 @@
-import jwt from 'jsonwebtoken'
+import jwt, { decode } from 'jsonwebtoken'
 import asyncHandler from 'express-async-handler'
 import User from '../models/userModel.js'
 
 export const authUser = asyncHandler(async (req,res,next) => {
    var token = req.headers.authtoken
+   console.log(token)
    
    if(token && token.startsWith('Bearer')){
     token = token.split(' ')[1]
     try {
+        console.log(token, process.env.JWT_SECRET)
         const decodedToken =  jwt.verify(token,process.env.JWT_SECRET)
+       
         const id = decodedToken.id
+       
         req.user = await User.findById(id).select('-password')
+       
         next()
     } catch (error) {
         res.status(400)

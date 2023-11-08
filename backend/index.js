@@ -17,15 +17,7 @@ dotenv.config();
 
 const allowedOrigins = ['https://enchanting-melba-984556.netlify.app']
 app.use(
-  cors({
-    origin: (origin, callback) => {
-      if (allowedOrigins.includes(origin)) {
-        callback(null, true)
-      } else {
-        callback(new Error('Not allowed by CORS'))
-      }
-    },
-  })
+  cors({})
 )
 
 
